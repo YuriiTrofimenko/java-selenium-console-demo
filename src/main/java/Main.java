@@ -1,3 +1,4 @@
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -31,6 +32,9 @@ public class Main {
         wikiUbuntuPage.performTitleSearchButtonClick();
         // присутствует ли искомая гиперссылка из результатов поиска теперь?
         System.out.println(wikiUbuntuPage.isFindPageHrefPresent());
+        ((JavascriptExecutor) driver).executeScript(
+                "window.scrollTo(0,document.body.scrollHeight);");
+        Thread.sleep(5000);
         // закрытие браузера
         driver.close();
     }
